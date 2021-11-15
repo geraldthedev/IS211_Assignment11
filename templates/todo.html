@@ -1,0 +1,37 @@
+<!doctype html>
+<title>Hello from Flask</title>
+<body>
+  <form action="/submit" method="POST">
+    task <input type="text" name="task">
+    e-mail <input type="email" name="email">
+    <select name="priority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <button type="submit" name="Submit">Add To Do Item</button> 
+    </form>
+    <form action="/clear" method="POST" >
+      <button type="submit" name="Clear">Clear List</button>
+    </form>
+    <form action="/save" method="POST" >
+      <button type="submit" name="Save">Save List</button>
+    </form>
+    {% for todos in to_do %}
+      
+    <ul>
+      {% for key, value in todos.items() %}
+      
+      <li value={{key}}><p>{{ key }}</p>{{ value }}</li>
+      <form action="/delete" method="POST">
+      </form>
+      <button type="submit" name="Delete">Delete Item</button>
+      {% endfor %}
+    </ul>
+      
+    {% endfor %}
+    
+</body>
+  
+ 
+
